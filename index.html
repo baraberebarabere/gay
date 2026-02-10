@@ -76,10 +76,16 @@
     Okay agora algo um bocadinho mais gay que tu
   </button>
 
+  <!-- MÚSICA RICK ROLL -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/Never Gonna Give You Up.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const btn = document.getElementById("showPhotosBtn");
     const photos = document.getElementById("photosContainer");
     const photoImgs = photos.querySelectorAll("img");
+    const music = document.getElementById('bgMusic');
 
     btn.addEventListener("click", function() {
       photos.style.display = "flex";   
@@ -90,6 +96,10 @@
         }, index * 200);
       });
       document.querySelector('.nextBtn').style.display = 'block';
+      
+      // TOCAR RICK ROLL (só depois do clique)
+      music.volume = 0.4;
+      music.play().catch(e => console.log('Música bloqueada pelo browser'));
     });
   </script>
 
