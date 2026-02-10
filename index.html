@@ -40,4 +40,50 @@
       justify-content: center;
     }
 
-    .photos i
+    .photos img {
+      width: 300px;
+      border-radius: 15px;
+      margin: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .photos img.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="showPhotosBtn">olha esta cena gay</button>
+
+  <div class="photos" id="photosContainer">
+    <img src="images/Foto1.jpeg" alt="Foto 1">
+    <img src="images/Foto2.jpeg" alt="Foto 2">
+    <img src="images/Foto3.jpeg" alt="Foto 3">
+    <img src="images/Foto4.jpeg" alt="Foto 4">
+    <img src="images/Foto5.jpeg" alt="Foto 5">
+  </div>
+
+  <script>
+    const btn = document.getElementById("showPhotosBtn");
+    const photos = document.getElementById("photosContainer");
+    const photoImgs = photos.querySelectorAll("img");
+
+    btn.addEventListener("click", function() {
+      photos.style.display = "flex";   // mostra o container
+      btn.style.display = "none";      // esconde o botão
+
+      // Faz aparecer as fotos com efeito fade-in sequencial
+      photoImgs.forEach((img, index) => {
+        setTimeout(() => {
+          img.classList.add("show");
+        }, index * 200); // 200ms entre cada foto
+      });
+    });
+  </script>
+
+</body>
+</html>
