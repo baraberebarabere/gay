@@ -48,23 +48,17 @@
       transform: translate(-50%, -50%);
       z-index: 3;
       text-align: center;
-      max-width: 85%;
+      max-width: 90%;
       padding: 20px;
     }
 
-    h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
-    }
-
     p {
-      font-size: clamp(1rem, 3vw, 1.6rem);
+      font-size: clamp(1.3rem, 4vw, 2rem);
       color: #333;
       margin-bottom: 40px;
-      line-height: 1.5;
+      line-height: 1.6;
+      max-height: 70vh;
+      overflow-y: auto;
     }
 
     .btn-back {
@@ -86,7 +80,8 @@
     }
 
     @media (max-width: 768px) {
-      .content { max-width: 95%; }
+      .content { max-width: 95%; padding: 10px; }
+      p { font-size: clamp(1.1rem, 4.5vw, 1.6rem); }
     }
   </style>
 </head>
@@ -102,9 +97,7 @@
 
   <!-- CONTEÚDO -->
   <div class="content">
-    <h1>✨ Te amo muito ✨</h1>
-    <p>Okay agora algo um bocadinho mais gay que tu... 
-       mas o meu coração é todo teu ❤️</p>
+    <p>Amar-te não foi um momento, foi um caminho, foi acontecendo devagar, nos detalhes, nas conversas que se estendiam sem darmos por isso, nos silêncios confortáveis e nos gestos simples que diziam mais do que mil palavras. Neste Dia dos Namorados e em todos os outros dias escolho-te, escolho amar-te com tudo o que sou, cuidar de ti e caminhar ao teu lado, sempre com o coração cheio pois só tu fazes-me sentir assim, amo-te daqui até à lua ❤️</p>
     <a href="index.html" class="btn-back">Voltar atrás</a>
   </div>
 
