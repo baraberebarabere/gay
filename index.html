@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
@@ -35,7 +35,7 @@
     }
 
     .nextBtn {
-      display: none;  /* começa escondido */
+      display: none;
     }
 
     .photos {
@@ -84,13 +84,11 @@
     btn.addEventListener("click", function() {
       photos.style.display = "flex";   
       btn.style.display = "none";      
-      
       photoImgs.forEach((img, index) => {
         setTimeout(() => {
           img.classList.add("show");
         }, index * 200);
       });
-      
       document.querySelector('.nextBtn').style.display = 'block';
     });
   </script>
