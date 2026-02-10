@@ -47,31 +47,57 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 3;
-      text-align: center;
-      max-width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 95%;
       padding: 20px;
+      height: 80vh;
+      flex-wrap: wrap;
+    }
+
+    .foto-left, .foto-right {
+      flex: 0 0 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      max-width: 180px;
+    }
+
+    .texto-container {
+      flex: 1;
+      max-width: 500px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
     }
 
     p {
-      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-size: clamp(1.1rem, 3.5vw, 1.7rem);
       color: #333;
-      margin-bottom: 40px;
       line-height: 1.6;
-      max-height: 70vh;
+      margin: 0;
+      max-height: 50vh;
       overflow-y: auto;
     }
 
     .btn-back {
-      padding: 18px 40px;
+      padding: 15px 35px;
       background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
       color: white;
       border: none;
       border-radius: 30px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       cursor: pointer;
       text-decoration: none;
       box-shadow: 0 6px 20px rgba(255,77,109,0.4);
       transition: all 0.3s;
+      align-self: center;
+      margin-top: auto;
     }
 
     .btn-back:hover {
@@ -80,8 +106,19 @@
     }
 
     @media (max-width: 768px) {
-      .content { max-width: 95%; padding: 10px; }
-      p { font-size: clamp(1.1rem, 4.5vw, 1.6rem); }
+      .content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+      }
+      .foto-left, .foto-right {
+        flex: 0 0 120px;
+        height: 160px;
+        max-width: 150px;
+      }
+      .texto-container {
+        max-width: 90%;
+      }
     }
   </style>
 </head>
@@ -97,9 +134,16 @@
 
   <!-- CONTEÚDO -->
   <div class="content">
-    <p>Amar-te não foi um momento, foi um caminho, foi acontecendo devagar, nos detalhes, nas conversas que se estendiam sem darmos por isso, nos silêncios confortáveis e nos gestos simples que diziam mais do que mil palavras. Neste Dia dos Namorados e em todos os outros dias escolho-te, escolho amar-te com tudo o que sou, cuidar de ti e caminhar ao teu lado, sempre com o coração cheio pois só tu fazes-me sentir assim, amo-te daqui até à lua ❤️</p>
-    <a href="index.html" class="btn-back">Voltar atrás</a>
+    <img src="images/foto-esquerda.jpeg" alt="Foto esquerda" class="foto-left">
+    
+    <div class="texto-container">
+      <p>Amar-te não foi um momento, foi um caminho, foi acontecendo devagar, nos detalhes, nas conversas que se estendiam sem darmos por isso, nos silêncios confortáveis e nos gestos simples que diziam mais do que mil palavras. Neste Dia dos Namorados e em todos os outros dias escolho-te, escolho amar-te com tudo o que sou, cuidar de ti e caminhar ao teu lado, sempre com o coração cheio pois só tu fazes-me sentir assim, amo-te daqui até à lua ❤️</p>
+      <a href="index.html" class="btn-back">Voltar atrás</a>
+    </div>
+    
+    <img src="images/foto-direita.jpeg" alt="Foto direita" class="foto-right">
   </div>
 
 </body>
 </html>
+
