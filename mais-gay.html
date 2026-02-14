@@ -15,26 +15,46 @@
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
-      background: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-        radial-gradient(1px 1px at 90px 40px, #eee, transparent),
-        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-        linear-gradient(135deg, #ffeef2 0%, #fff5f8 100%);
-      background-size: 200px 100px;
-      animation: estrelasMovimento 20s linear infinite;
       position: relative;
       padding: 20px;
     }
 
-    /* ANIMAÇÃO ESTRELAS */
-    @keyframes estrelasMovimento {
-      0% { 
-        background-position: 0 0, 0 0, 0 0, 0 0, 135deg;
-      }
-      100% { 
-        background-position: 100px 100px, 200px 200px, 300px 150px, 400px 300px, 135deg;
-      }
+    /* VÍDEO ORIGINAL */
+    .video-container { 
+      position: fixed; top: 0; left: 0; 
+      width: 100%; height: 100vh; 
+      overflow: hidden; z-index: 1; 
+    }
+    .video-bg { 
+      width: 120%; height: 120%; 
+      object-fit: cover; transform: translate(-10%, -10%);
+      animation: videoSuave 30s linear infinite; /* movimento suave */
+    }
+    
+    /* ESTRELAS POR CIMA DO VÍDEO */
+    .estrelas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: 
+        radial-gradient(3px 3px at 20px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 80px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 200px 120px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 300px 200px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 400px 50px, rgba(255,255,255,0.8), transparent);
+      background-size: 500px 400px;
+      animation: estrelasFlutuam 25s ease-in-out infinite;
+      z-index: 1.5;
+    }
+
+    @keyframes videoSuave {
+      0%, 100% { transform: translate(-10%, -10%) scale(1); }
+      50% { transform: translate(-5%, -5%) scale(1.02); }
+    }
+
+    @keyframes estrelasFlutuam {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+      33% { transform: translateY(-10px) rotate(1deg); opacity: 1; }
+      66% { transform: translateY(5px) rotate(-1deg); opacity: 0.9; }
     }
 
     .overlay { 
@@ -55,10 +75,7 @@
       color: #555; font-weight: 600; margin-bottom: 10px;
     }
 
-    .texto-com-fotos {
-      display: grid; gap: 30px;
-      max-width: 950px; width: 100%;
-    }
+    .texto-com-fotos { display: grid; gap: 30px; max-width: 950px; width: 100%; }
 
     @media (min-width: 769px) {
       .texto-com-fotos {
@@ -68,11 +85,9 @@
       .texto-com-fotos img:first-child { grid-column: 1; justify-self: end; }
       .texto-com-fotos img:last-child { grid-column: 3; justify-self: start; }
       .texto-com-fotos p {
-        grid-column: 2;
-        text-align: justify;
+        grid-column: 2; text-align: justify;
         max-width: 480px; margin: 0 auto;
-        font-size: 1.2rem; line-height: 1.7;
-        hyphens: auto;
+        font-size: 1.2rem; line-height: 1.7; hyphens: auto;
       }
     }
 
@@ -80,8 +95,7 @@
       body { padding: 15px; }
       .texto-com-fotos { 
         grid-template-columns: 1fr; 
-        grid-template-rows: auto auto auto; 
-        gap: 25px;
+        grid-template-rows: auto auto auto; gap: 25px;
       }
       .texto-com-fotos img:first-child { grid-row: 1; justify-self: center; }
       .texto-com-fotos p { grid-row: 2; text-align: justify; }
@@ -122,6 +136,14 @@
   </style>
 </head>
 <body>
+
+  <div class="video-container">
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="images/estrelas-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="estrelas"></div>  <!-- ESTRELAS ANIMADAS -->
 
   <div class="overlay"></div>
 
